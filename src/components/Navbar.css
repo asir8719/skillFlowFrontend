@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #5d5fc3;
+}
+
+.div1{
+    font-size: larger;
+    display: flex;
+    padding-left: 4rem;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+}
+
+li{
+    padding: .2rem 1rem;
+    font-size: large;
+}
+
+a{
+    text-decoration: none;
+    color: #5d5fc3;
+}
+
+a:focus::after{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 3rem;
+    border-bottom: 3.3px solid #5d5fc3;
+    top: 3.4rem;
+    transition: color 1s;
+}
+
+a:focus{
+    color: white;
+    transition: color 1s;
+}
