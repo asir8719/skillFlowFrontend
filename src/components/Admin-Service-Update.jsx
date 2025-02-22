@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const AdminServiceUpdate = () => {
 
-    const {token} = useAuth()
+    const {token, API} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
     const {id} = useParams()
@@ -32,7 +32,7 @@ const AdminServiceUpdate = () => {
     const handleFormSubmit = async(e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`http://localhost:3000/admin/services/${id}/edit`, {
+            const response = await fetch(`${API}/admin/services/${id}/edit`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json",

@@ -14,7 +14,7 @@ const SignUp = () => {
     password: "",
   })
   
-  const {storeTokenInLS} = useAuth()
+  const {storeTokenInLS, API} = useAuth()
   
   const handleInput = (e) =>{
     let name = e.target.name
@@ -28,7 +28,7 @@ const SignUp = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch(`${API}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

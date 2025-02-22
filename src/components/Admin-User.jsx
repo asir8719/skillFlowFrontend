@@ -6,12 +6,12 @@ import {Link} from 'react-router-dom'
 const AdminUser = () => {
 
         const [userData, setUserData] = useState([])
-        const {token} = useAuth()
+        const {token, API} = useAuth()
     
         const deleteUser = async (id) => {
             console.log(id)
             try {
-                const response = await fetch(`http://localhost:3000/admin/user/delete/${id}`, {
+                const response = await fetch(`${API}/admin/user/delete/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ const AdminUser = () => {
         
         const fetchUserData = async() =>{
             try {
-                const response = await fetch('http://localhost:3000/admin/user', {
+                const response = await fetch(`${API}/admin/user`, {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`,

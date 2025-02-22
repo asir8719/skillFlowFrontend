@@ -6,7 +6,7 @@ import { useAuth } from "../store/auth";
 const AdminUpdate = () => {
     
     const { id } = useParams()
-    const {token} = useAuth()
+    const {token, API} = useAuth()
     const navigate = useNavigate()
     const location = useLocation();
     const [user, setUser] = useState({
@@ -33,7 +33,7 @@ const AdminUpdate = () => {
     const handleFormSubmit = async(e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`http://localhost:3000/admin/user/${id}/update`, {
+            const response = await fetch(`${API}/admin/user/${id}/update`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json",

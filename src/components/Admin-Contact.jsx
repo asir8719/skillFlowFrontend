@@ -4,12 +4,12 @@ import { useAuth } from "../store/auth"
 
 const AdminContact = () => {
 
-    const {token} = useAuth()
+    const {token, API} = useAuth()
     const [contactData, setContactData] = useState([])
 
     const deleteContact = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/admin/contact/delete/${id}`, {
+            const response = await fetch(`${API}/admin/contact/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ const AdminContact = () => {
 
     const fetchContactData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/admin/contact', {
+            const response = await fetch(`${API}/admin/contact`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,

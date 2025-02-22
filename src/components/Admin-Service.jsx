@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 const AdminServices = () => {
 
     const [serviceData, setServiceData] = useState([])
-    const {token} = useAuth()
+    const {token, API} = useAuth()
 
     const deleteServices = async(id) => {
         try {
-            const response = await fetch(`http://localhost:3000/admin/services/delete/${id}`, {
+            const response = await fetch(`${API}/admin/services/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ const AdminServices = () => {
 
     const fetchServiceData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/admin/services', {
+            const response = await fetch(`${API}/admin/services`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,

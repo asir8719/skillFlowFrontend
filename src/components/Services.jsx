@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import { useAuth } from '../store/auth'
 
 
 const Services = () => {
   
   const [services, setServices] = useState([])
     const [refresh, setRefresh] = useState(false)
+    const {API} = useAuth()
 
   const fetchServiceData = async() =>{
     try {
-      const response = await fetch('http://localhost:3000/services', {
+      const response = await fetch(`${API}/services`, {
         method: 'GET',
       })
       const data = await response.json()
