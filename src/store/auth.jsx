@@ -7,7 +7,7 @@ export const AuthProvider = ({children}) =>{
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [data, setData] = useState('')
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'))
-    const API = 'http://localhost:3000'
+    const API = 'https://ecommerces-m6g0.onrender.com'
     
     const storeTokenInLS = (serverToken) =>{
         setIsLoggedIn(true)
