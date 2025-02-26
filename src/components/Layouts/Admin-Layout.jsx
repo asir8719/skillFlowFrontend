@@ -15,7 +15,7 @@ const Admin = () => {
                     <li><NavLink to='/admin'><FaUser/>   User</NavLink></li>
                     <li><NavLink to='/admin/services'><FaRegListAlt/>   Services</NavLink></li>
                     <li><NavLink to='/admin/contact'><FaMessage/>   Contacts</NavLink></li>
-                    <li><NavLink to='/home'><FaHome/>   Home</NavLink></li>
+                    <li><NavLink to='/'><FaHome/>   Home</NavLink></li>
                 </ul>
             </div>
             <Outlet/>
