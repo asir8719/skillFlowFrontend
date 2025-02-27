@@ -323,8 +323,52 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
     color: white;
   }
 
-  @media (max-width: 480px) {
-  .abtdv2, .abtdv1 {
+  /* About.css */
+
+.abtdv1 {
+  padding: 20px;
+}
+/* 
+.abtdv2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+} */
+/* 
+.abtdv2 > div {
+  flex: 1;
+  min-width: 300px;
+  margin: 10px;
+}
+
+.abtdv2 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.abtdv3 {
+  flex: 1;
+  min-width: 300px;
+  margin: 10px;
+}
+
+.abtdv4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+} */
+
+.abtdv4 > div {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .abtdv2 {
     flex-direction: column;
     align-items: center;
   }
@@ -343,6 +387,9 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
 }
 
 @media (max-width: 480px) {
+  .abtdv1 {display: flex;
+    flex-direction: column;
+  }
   .abtdv2 > div {
     min-width: 100%;
   }
@@ -351,7 +398,6 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
     min-width: 100%;
   }
 }
-
 /* Home.css */
 
 .hmdv1 {
@@ -766,3 +812,87 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
   }
 }
 
+/* Navbar.css */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.div1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu ul li {
+  margin: 0 10px;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.nav-menu ul li a:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    z-index: 1;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-menu ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .nav-menu ul li a {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
