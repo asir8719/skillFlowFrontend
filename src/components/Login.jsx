@@ -61,7 +61,7 @@ const Login = () => {
   return (
     <div className='lgndv1'>
       <div className='lgndv2'>
-        <img src="../lgnscrnsht.jpg" alt="" />
+        <img className='lgnimg' src="../lgnscrnsht.jpg" alt="" />
       </div>
       <div className='lgndv3'>
         <h1>Login Form</h1>

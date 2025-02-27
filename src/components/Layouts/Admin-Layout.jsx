@@ -18,7 +18,9 @@ const Admin = () => {
                     <li><NavLink to='/'><FaHome/>   Home</NavLink></li>
                 </ul>
             </div>
-            <Outlet/>
+            <div className="admndv3">
+                <Outlet/>
+            </div>
         </div>    
     )
 }
