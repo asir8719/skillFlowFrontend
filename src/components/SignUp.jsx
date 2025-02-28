@@ -59,7 +59,7 @@ const SignUp = () => {
 
   return (<>
     <div className='rgstrdv1'>
-      <div className='rgstrdv2'><img src="../loginscrnsht.jpeg" alt="" /></div>
+      <div className='rgstrdv2'><img src="../loginscrnsht.jpeg" className="rgstrimg" /></div>
       <div className='rgstrdv3'>
         <h1>Registration Form</h1>
         <br />

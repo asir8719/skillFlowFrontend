@@ -59,7 +59,7 @@ const Contact = () => {
     <div className='cntctdv1'>
       <div className='cntctdv2'>
         <h1>Contact Us</h1>
-        <img src="./cntctscrnsht.jpg" />
+        <img className='cntctimg' src="./cntctscrnsht.jpg" />
       </div>
       <div className='cntctdv3'>
         <form onSubmit={handleSubmit}>

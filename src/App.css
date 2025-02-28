@@ -514,6 +514,14 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
       width: 100%;
     }
 
+    .cntctdv3 form input, .cntctdv3 form textarea {
+      width: 90%;
+    }
+
+    .cntctimg {
+      width: 100%;
+    }
+
     .cntctdv1 {
         display: flex;
         flex-direction: column;
@@ -602,8 +610,8 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
     padding: 10px;
   }
 
-  .lgndv3 input {
-    padding: 8px;
+  .lgndv3 form input {
+    width: 90%;
   }
 
   .lgnimg {
@@ -630,12 +638,13 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
 }
 
 @media (max-width: 480px) {
-  .rgstrdv3 {
-    padding: 10px;
+
+  .rgstrimg {
+    width: 100%;
   }
 
   .rgstrdv3 input {
-    padding: 8px;
+    width: 90%;
   }
 
   .rgstrdv3 button {
