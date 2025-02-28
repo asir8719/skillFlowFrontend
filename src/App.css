@@ -328,38 +328,6 @@ form div button, .hmdv2 div :nth-child(4), .hmdv4 :nth-child(2) :nth-child(4), .
 .abtdv1 {
   padding: 20px;
 }
-/* 
-.abtdv2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-} */
-/* 
-.abtdv2 > div {
-  flex: 1;
-  min-width: 300px;
-  margin: 10px;
-}
-
-.abtdv2 img {
-  max-width: 100%;
-  height: auto;
-}
-
-.abtdv3 {
-  flex: 1;
-  min-width: 300px;
-  margin: 10px;
-}
-
-.abtdv4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  text-align: center;
-} */
 
 .abtdv4 > div {
   flex: 1;
