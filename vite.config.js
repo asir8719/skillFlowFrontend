@@ -6,6 +6,17 @@ export default defineConfig({
   base: "./",
   plugins: [react()],
   optimizeDeps: {
-    include: ['gsap', 'gsap/ScrollTrigger']
-  }
+    include: ['gsap', 'gsap/ScrollTrigger'],
+    force: true,
+  },
+  build: {
+    rollupOptions: {
+      external: ['gsap', 'gsap/ScrollTrigger'],
+      output: {
+        manualChunks: {
+          gsap: ['gsap'], // Ensure GSAP is bundled correctly
+        },
+      },
+    },
+  },
 })
