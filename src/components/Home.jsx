@@ -1,45 +1,44 @@
 import gsap from "gsap"
-// import { useGSAP } from "@gsap/react"
-// import { ScrollTrigger } from "gsap/all"
-import React, { useRef } from "react"
+import { ScrollTrigger } from "gsap/all"
+import React, { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 const Home = () =>{
     const containerRef = useRef()
-    // useGSAP(() =>{
-    //     const tl = gsap.timeline({defaults: {duration: .3, delay:0}})
-    //     tl.from('.hmdv2 h1', {y: 50, opacity: 0})
-    //     tl.from('.hmdv2 p', {y: 50, opacity: 0})
-    //     tl.from('.hmdv2 button', {y: 50, opacity: 0})
+    useEffect(() =>{
+        const tl = gsap.timeline({defaults: {duration: .3, delay:0}})
+        tl.from('.hmdv2 h1', {y: 50, opacity: 0})
+        tl.from('.hmdv2 p', {y: 50, opacity: 0})
+        tl.from('.hmdv2 button', {y: 50, opacity: 0})
 
-    //     gsap.from('.hmdv3 div', {
-    //         y: 50,
-    //         opacity: 0,
-    //         duration: .7,
-    //         scrollTrigger: {
-    //             trigger: '.hmdv3',
-    //             scroller: "body",
-    //             start: 'top 60%',
-    //             markers: false,
-    //             end: 'bottom 10%',
-    //         }
-    //     })
-    //     const tl2 = gsap.timeline({
-    //         defaults: {duration:.2, delay:0},
-    //         scrollTrigger: {
-    //             trigger: '.hmdv4',
-    //             scroller: "body",
-    //             start: 'top 50%',
-    //             markers: false,
-    //             end: 'bottom 10%',
-    //         }    
-    //     })
-    //     tl2.from('.hmp1', {y: 50, opacity: 0})
-    //     tl2.from('.hmh1', {y: 50, opacity: 0})
-    //     tl2.from('.hmp2', {y: 50, opacity: 0})
-    //     tl2.from('.hmdv4 button', {y: 50, opacity: 0})
-    // }, {scope: containerRef, revertOnUpdate: true})
+        gsap.from('.hmdv3 div', {
+            y: 50,
+            opacity: 0,
+            duration: .7,
+            scrollTrigger: {
+                trigger: '.hmdv3',
+                scroller: "body",
+                start: 'top 60%',
+                markers: false,
+                end: 'bottom 10%',
+            }
+        })
+        const tl2 = gsap.timeline({
+            defaults: {duration:.2, delay:0},
+            scrollTrigger: {
+                trigger: '.hmdv4',
+                scroller: "body",
+                start: 'top 50%',
+                markers: false,
+                end: 'bottom 10%',
+            }    
+        })
+        tl2.from('.hmp1', {y: 50, opacity: 0})
+        tl2.from('.hmh1', {y: 50, opacity: 0})
+        tl2.from('.hmp2', {y: 50, opacity: 0})
+        tl2.from('.hmdv4 button', {y: 50, opacity: 0})
+    }, [])
 
     return (
         <>

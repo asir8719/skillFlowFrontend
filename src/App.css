@@ -1,10 +1,10 @@
 @font-face {
   font-family: "bri";
-  src: url('65ee8dd4ca50180798977024_BricolageGrotesque-Bold.ttf');
+  src: url('/65ee8dd4ca50180798977024_BricolageGrotesque-Bold.ttf');
 }
 @font-face {
   font-family: "brilight";
-  src: url('BricolageGrotesque.ttf');
+  src: url('/BricolageGrotesque.ttf');
 }
 body {
   background-image: radial-gradient( #53C926 -70%, #00181c 30%);
