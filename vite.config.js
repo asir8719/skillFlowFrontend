@@ -11,7 +11,6 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['gsap', 'gsap/ScrollTrigger'],
       output: {
         manualChunks: {
           gsap: ['gsap'], // Ensure GSAP is bundled correctly
