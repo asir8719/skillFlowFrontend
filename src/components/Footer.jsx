@@ -4,7 +4,7 @@ import '../App.css'
 const Footer = () =>{
     return(
         <>
-            <div className='ftrbtn'>@Skill Flow 2024</div>
+            <div className='ftrbtn'>@asirtechnical 2024</div>
         </>
     )
 }

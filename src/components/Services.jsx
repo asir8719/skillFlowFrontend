@@ -32,11 +32,11 @@ const Services = () => {
   }, [])
   
   return (<>
-    <h1 className='srvch1'>Our Services</h1>
+    <h1 className='srvch1'>Services</h1>
     <div className='srvcdv1'>
       {services.map((srvc) => (  
         <div key={srvc.id} className='srvcdv2'>
-          <img src={srvc.image} alt="" />
+          <img src="./srvcscrnsht.png" alt="" />
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <p>{srvc.provider}</p>
             <p>{srvc.price}</p>
