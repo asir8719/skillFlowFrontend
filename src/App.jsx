@@ -17,14 +17,12 @@ import AdminUser from './components/Admin-User.jsx'
 import AdminServices from './components/Admin-Service.jsx'
 import AdminUpdate from './components/Admin-Update.jsx'
 import AdminServiceUpdate from './components/Admin-Service-Update.jsx'
-import LightMode from './components/LightMode.jsx'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navbar/>
-        <LightMode/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>

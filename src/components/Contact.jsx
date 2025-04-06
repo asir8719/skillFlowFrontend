@@ -59,14 +59,14 @@ const Contact = () => {
     <div className='cntctdv1'>
       <div className='cntctdv2'>
         <h1>Contact Us</h1>
-        <img className='cntctimg' src="./WhatsAppContact.jpg" />
+        <img className='cntctimg' src="./cntctscrnsht.jpg" />
       </div>
       <div className='cntctdv3'>
         <form onSubmit={handleSubmit}>
           <div>Username <label htmlFor="username"></label><input type="text" name='username' value={user.username} onChange={handleInput} id='username' required /></div>
           <div>Email <label htmlFor="email"></label><input type="email" name='email' value={user.email} onChange={handleInput} id='email' required /></div>
           <div>Message <label htmlFor="message"></label><textarea type="text" name='message' value={user.message} onChange={handleInput} id='message' required /></div>
-          <button className='hmbtn' type='submit'>Submit</button>
+          <button type='submit'>Submit</button>
         </form>
       </div>
     </div>

@@ -61,7 +61,7 @@ const Login = () => {
   return (
     <div className='lgndv1'>
       <div className='lgndv2'>
-        <img className='lgnimg' src="../WhatsAppLogin.jpg" alt="" />
+        <img className='lgnimg' src="../lgnscrnsht.jpg" alt="" />
       </div>
       <div className='lgndv3'>
         <h1>Login Form</h1>
@@ -69,7 +69,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div><label htmlFor="username">Username</label><input type="text" name='username' value={user.username} onChange={handleInput} id='username' required /></div>
           <div><label htmlFor="password">Password</label><input type="text" name='password' value={user.password} onChange={handleInput} id='password' required /></div>
-          <div><button className='hmbtn' onClick={toggleAuth} type='submit'>Login Now</button></div>
+          <div><button onClick={toggleAuth} type='submit'>Login Now</button></div>
         </form>
       </div>
     </div>

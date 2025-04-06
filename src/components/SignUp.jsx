@@ -59,7 +59,7 @@ const SignUp = () => {
 
   return (<>
     <div className='rgstrdv1'>
-      <div className='rgstrdv2'><img src="../WhatsAppRegister.jpg" className="rgstrimg" /></div>
+      <div className='rgstrdv2'><img src="../loginscrnsht.jpeg" className="rgstrimg" /></div>
       <div className='rgstrdv3'>
         <h1>Registration Form</h1>
         <br />
@@ -68,7 +68,7 @@ const SignUp = () => {
           <div><label htmlFor="email">Email</label><input type="email" name='email' id='email' value={user.email} onChange={handleInput} required /></div>
           <div><label htmlFor="phone">Phone</label><input type="number" name='phone' id='phone' value={user.phone} onChange={handleInput} required /></div>
           <div><label htmlFor="password">Password</label><input type="password" name='password' id='password' value={user.password} onChange={handleInput} required /></div>
-          <div><button className='hmbtn' type='submit'>Register Now</button></div>
+          <div><button type='submit'>Register Now</button></div>
         </form>
       </div>
     </div>
