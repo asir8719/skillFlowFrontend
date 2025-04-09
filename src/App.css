@@ -146,6 +146,8 @@ form div button, .cntctdv3 form button{
 
 .ftrbtn{
     background-color: #fbfbfb1c;
+    position: relative;
+    z-index: -10;
     backdrop-filter: blur(10px);
     color: white;
     font-weight: 400;
@@ -185,8 +187,11 @@ form div button, .cntctdv3 form button{
 
 .errdv1{
     display: flex;
+    position: relative;
+    z-index: -10;
     flex-direction: column;
     text-align: center;
+    align-items: center;
 }
 
 @keyframes anm1{
@@ -202,7 +207,6 @@ form div button, .cntctdv3 form button{
 
 .errdv1 h1{
     font-size: 19rem;
-    z-index: 0;
     margin-top: 0;
     margin-bottom: -1rem;
     line-height: 18rem;
@@ -212,7 +216,6 @@ form div button, .cntctdv3 form button{
 
 .errdv1 p, .errdv1 h5{
     margin: .4rem;
-    z-index: 1;
 }
 
 .errdv1 div{
@@ -235,6 +238,24 @@ form div button, .cntctdv3 form button{
     color: #fff;
     font-weight: 700;
     transition: all .3s ease .1s;
+}
+
+.errdv1 {
+  margin-top: 3rem;
+  line-height: 2.5rem;
+}
+@media (max-width: 768px) {
+  
+  .errdv1 h1{
+        font-size: 10rem;
+        line-height: 9rem;
+    }
+}
+@media (max-width: 480px) {
+    .errdv1 h1{
+        font-size: 6rem;
+        line-height: 5rem;
+    }
 }
 
 .cntctbtn{
@@ -470,9 +491,8 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
       will-change: auto !important; */
     }
 
-    .hmdv2 h1,
-.hmdv2 p,
-.hmdv2 button {
+    .hmdv2 h1, .hmdv2 p, .hmbtn, .lrnbtn, .errdiv h1, .lgndv1, .lgndv2 img, .lgndv3 h1, .lgndv3 form, .rgstrdv1, .rgstrdv2 img, .rgstrdv3 h1, .rgstrdv3 form,
+.hmimg1, .abtdv2 h4, .abtdv2 h1, .abtdv2 p, .cntctdv2 h1, .cntctimg, .cntctdv3 form, .srvch1, .srvcdv1 {
   transform: none !important;
 }
   
@@ -506,16 +526,8 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
       min-width: 100%;
     }
 
-    /* .hmdv2{
-      position: relative;
-      z-index: 0;
-      transform: none !important;
-      will-change: auto !important;
-    } */
-
-    .hmdv2 h1,
-.hmdv2 p,
-.hmdv2 button {
+    .hmdv2 h1,.hmdv2 p, .errdiv h1, .lgndv1, .lgndv2 img, .lgndv3 h1, .lgndv3 form, .rgstrdv1, .rgstrdv2 img, .rgstrdv3 h1, .rgstrdv3 form,
+.hmbtn, .lrnbtn, .hmimg1, .abtdv2 h4, .abtdv2 h1, .abtdv2 p, .cntctdv2 h1, .cntctimg, .cntctdv3 form, .srvch1, .srvcdv1 {
   transform: none !important;
 }
   
@@ -525,13 +537,16 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
   }
 
   /* Contact.css */
-
+.cntctdv1{
+  flex-wrap: wrap;
+  font-size: larger;
+}
   @media (max-width: 768px) {
     .cntctdv2 {
       flex-direction: column;
       align-items: center;
     }
-  
+
     .cntctdv2 img {
       margin-top: 20px;
     }
@@ -539,7 +554,7 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
   
   @media (max-width: 480px) {
     .cntctdv3 form {
-      width: 100%;
+      width: 90vw;
     }
 
     .cntctdv3 form input, .cntctdv3 form textarea {
@@ -549,11 +564,6 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
     .cntctimg {
       width: 100%;
     }
-
-    .cntctdv1 {
-        display: flex;
-        flex-direction: column;
-      }
   }
 
   /* Services.css */
@@ -624,63 +634,34 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
 }
 
 /* Login.css */
-
-@media (max-width: 768px) {
-  .lgndv1 {
-    flex-direction: column;
-  }
-
-  .lgndv2,
-  .lgndv3 {
-    width: 100%;
-    max-width: 500px;
-  }
+.lgndv1 {
+  flex-wrap: wrap;
 }
 
 @media (max-width: 500px) {
-  .lgndv3 {
-    padding: 10px;
-  }
-
   .lgndv3 form input {
-    width: 90%;
+    width: 80vw;
   }
 
   .lgnimg {
-    width: 100%;
-  }
-
-  .lgndv3 button {
-    padding: 8px 16px;
+    width: 90%;
   }
 }
 
 /* SignUp.css */
 
-@media (max-width: 768px) {
-  .rgstrdv1 {
-    flex-direction: column;
-  }
-
-  .rgstrdv2,
-  .rgstrdv3 {
-    width: 100%;
-    max-width: 500px;
-  }
+.rgstrdv1 {
+  flex-wrap: wrap;
 }
 
 @media (max-width: 480px) {
 
   .rgstrimg {
-    width: 100%;
+    width: 80vw;
   }
 
   .rgstrdv3 input {
-    width: 90%;
-  }
-
-  .rgstrdv3 button {
-    padding: 8px 16px;
+    width: 91%;
   }
 }
 
@@ -692,6 +673,8 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
+  position: relative;
+  z-index: -10;
 }
 
 .admndv2 {
@@ -756,6 +739,8 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
 .nav-menu {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 9999;
 }
 
 

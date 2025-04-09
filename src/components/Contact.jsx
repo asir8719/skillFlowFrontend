@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../store/auth'
 import { toast } from 'react-toastify'
+import gsap from 'gsap'
 
 const Contact = () => {
 
@@ -11,7 +12,6 @@ const Contact = () => {
   })
 
   const {data, isLoggedIn, API} = useAuth()
-  const [isDataLoaded, setIsDataLoaded] = useState(false)
   
   
   const handleSubmit = async(e) =>{
@@ -54,11 +54,21 @@ const Contact = () => {
         })
       } 
     }, [data, isLoggedIn])
+
+    useEffect(() => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({defaults: {duration: .21, delay:0}})
+        tl.from('h1', {y:50, opacity: 0})
+        tl.from('.cntctimg', {y:50, opacity: 0})
+        tl.from('.cntctdv3 form', {y:50, opacity: 0})
+      })
+      return () => ctx.revert()
+    }, [])
     
   return (<>
     <div className='cntctdv1'>
       <div className='cntctdv2'>
-        <h1>Contact Us</h1>
+        <h1 style={{fontSize:"4.1rem"}}>Contact Us</h1>
         <img className='cntctimg' src="./WhatsAppContact.jpg" />
       </div>
       <div className='cntctdv3'>

@@ -7,13 +7,15 @@ gsap.registerPlugin(ScrollTrigger)
 const Home = () =>{
     const containerRef = useRef()
     useEffect(() =>{
-        const tl = gsap.timeline({defaults: {duration: .3, delay:0}})
-        tl.from('.hmdv2 h1', {y: 50, opacity: 0})
-        tl.from('.hmdv2 p', {y: 50, opacity: 0})
-        tl.from('.hmdv2 button', {y: 50, opacity: 0})
-
-        gsap.from('.hmdv3 div', {
-            y: 50,
+        const ctx = gsap.context(()  => {
+            const tl = gsap.timeline({defaults: {duration: .24, delay:0}})
+            tl.from('.hmdv2 h1', {y: 50, opacity: 0})
+            tl.from('.hmimg1', {y: 50, opacity: 0})
+            tl.from('.hmdv2 p', {y: 50, opacity: 0})
+            tl.from('.hmdv2 button', {y: 50, opacity: 0})
+            
+            gsap.from('.hmdv3 div', {
+                y: 50,
             opacity: 0,
             duration: .7,
             scrollTrigger: {
@@ -38,6 +40,8 @@ const Home = () =>{
         tl2.from('.hmh1', {y: 50, opacity: 0})
         tl2.from('.hmp2', {y: 50, opacity: 0})
         tl2.from('.hmdv4 button', {y: 50, opacity: 0})
+    })
+    return () => ctx.revert()
     }, [])
 
     return (
@@ -51,7 +55,7 @@ const Home = () =>{
                         <Link to='/login'><button className="hmbtn">Connect Now</button></Link>
                         <Link to='/services'><button className="lrnbtn">Learn More</button></Link>
                     </div>
-                    <div><img src="./WhatsAppHome.jpg" alt="skillflow into"/></div>
+                    <div className="hmimg1"><img src="./WhatsAppHome.jpg" alt="skillflow into"/></div>
                 </div>
                 <div className="hmdv3">
                     <div><h1>50+</h1><p>Registered Companies</p></div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../App.css'
 import { useAuth } from '../store/auth'
 import { Navigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import gsap from 'gsap'
 
 const Login = () => {
 
@@ -57,6 +58,17 @@ const Login = () => {
   if(redirect) {
     return <Navigate to='/about' />
   }
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({defaults: {duration: .24, delay:0}})
+      tl.from('.lgndv1', {y: 50, opacity: 0})
+      tl.from('.lgndv2 img', {y: 50, opacity: 0})
+      tl.from('.lgndv3 h1', {y: 50, opacity: 0})
+      tl.from('.lgndv3 form', {y: 50, opacity: 0})
+    })
+    return () => ctx.revert()
+  }, [])
 
   return (
     <div className='lgndv1'>

@@ -1,17 +1,54 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../store/auth'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const About = () => {
-
+  
   const {data, isLoggedIn} = useAuth()
-  const [name, setName] = useState('Asir Khan')
+  const [name, setName] = useState('')
   useEffect(() =>{
     if(data && isLoggedIn){
       const {username} = data.msg
       setName(username)
     }
   }, [data, isLoggedIn])
+
+  useEffect(() => {
+    const ctx = gsap.context(()  => {
+      const tl = gsap.timeline({defaults: {duration: .23, delay:0}})
+      tl.from('.abtdv2 h4', {y: 50, opacity: 0})
+      tl.from('img', {y: 50, opacity: 0})
+      tl.from('.abtdv2 h1', {y: 50, opacity: 0})
+      tl.from('.abtdv2 p', {y: 50, opacity: 0})
+    })
+    gsap.from('.hmbtn', {
+      y:50,
+      opacity: 0,
+      duration: .7,
+      scrollTrigger: {
+        trigger: '.abtdv3',
+        scroller: 'body',
+        start: 'top 10%',
+        markers: false,
+      }
+    })
+    gsap.from('.abtdv4', {
+      y: 50,
+      opacity: 0,
+      duration: .7,
+      scrollTrigger: {
+        trigger: '.abtdv4',
+        scroller: 'body',
+        start: 'top 80%',
+        markers: false,
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
 
     return (<>
     <div className='abtdv1'>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useAuth } from '../store/auth'
+import gsap from 'gsap'
 
 
 const Services = () => {
@@ -29,10 +30,17 @@ const Services = () => {
 
   useEffect(() =>{
     fetchServiceData()
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({defaults: {duration: .3, delay:0}})
+      tl.from('.srvch1', {y: 50, opacity: 0})
+      tl.from('.srvcdv1', {y: 50, opacity: 0})
+      tl.from('.srvcdv2', {y: 50, opacity: 0})
+    })
+    return () => ctx.revert()
   }, [])
   
   return (<>
-    <h1 className='srvch1'>Our Services</h1>
+    <h1 style={{fontSize:"4.1rem", marginTop:"2rem"}} className='srvch1'>Our Services</h1>
     <div className='srvcdv1'>
       {services.map((srvc) => (  
         <div key={srvc.id} className='srvcdv2'>
