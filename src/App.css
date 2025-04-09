@@ -481,6 +481,12 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
     height: auto;
   }
   
+  .hmdv2 h1, .hmdv2 p, .hmbtn, .lrnbtn, .errdiv h1, .lgndv1, .lgndv2 img, .lgndv3 h1, .lgndv3 form, .rgstrdv1, .rgstrdv2 img, .rgstrdv3 h1, .rgstrdv3 form,
+.hmimg1, .abtdv2 h4, .abtdv2 h1, .abtdv2 p, .abtimg, .cntctdv2 h1, .cntctimg, .cntctdv3 form, .srvch1, .srvcdv1 {
+transform: none !important;
+position: relative;
+z-index: -10;
+}
   @media (max-width: 768px) {
     .hmdv2 {
       flex-direction: column;
@@ -491,10 +497,6 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
       will-change: auto !important; */
     }
 
-    .hmdv2 h1, .hmdv2 p, .hmbtn, .lrnbtn, .errdiv h1, .lgndv1, .lgndv2 img, .lgndv3 h1, .lgndv3 form, .rgstrdv1, .rgstrdv2 img, .rgstrdv3 h1, .rgstrdv3 form,
-.hmimg1, .abtdv2 h4, .abtdv2 h1, .abtdv2 p, .cntctdv2 h1, .cntctimg, .cntctdv3 form, .srvch1, .srvcdv1 {
-  transform: none !important;
-}
   
     .hmdv2 > div {
       margin: 10px 0;
@@ -525,11 +527,6 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
     .hmdv3 > div {
       min-width: 100%;
     }
-
-    .hmdv2 h1,.hmdv2 p, .errdiv h1, .lgndv1, .lgndv2 img, .lgndv3 h1, .lgndv3 form, .rgstrdv1, .rgstrdv2 img, .rgstrdv3 h1, .rgstrdv3 form,
-.hmbtn, .lrnbtn, .hmimg1, .abtdv2 h4, .abtdv2 h1, .abtdv2 p, .cntctdv2 h1, .cntctimg, .cntctdv3 form, .srvch1, .srvcdv1 {
-  transform: none !important;
-}
   
     .hmdv4 > div {
       min-width: 100%;
