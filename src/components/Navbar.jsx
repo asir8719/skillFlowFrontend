@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const ref2 = useRef();
   const [isMobile, setIsMobile] = useState(false); // State to track screen size
-  const { contextSafe } = useGSAP(); // Use GSAP context for animations
+  const lastScroll = useRef(0); // Ref to track last scroll position
 
   // Check screen size on mount and resize
   useEffect(() => {
@@ -28,9 +28,10 @@ const Navbar = () => {
     };
   }, []);
 
-  const toggleMenu = contextSafe(() => {
-    if (isMobile) {
-      // Apply GSAP animations only for mobile screens
+  const toggleMenu = () => {
+    const ctx = gsap.context(() => {
+      if (isMobile) {
+        // Apply GSAP animations only for mobile screens
       if (isOpen) {
         gsap.to(ref2.current, {
           duration: 0.3,
@@ -50,7 +51,32 @@ const Navbar = () => {
       // For full-screen, just toggle the state without animations
       setIsOpen(!isOpen);
     }
-  });
+  })
+  return () => ctx.revert()
+  };
+
+  useEffect(() => {
+    const ctx2 = gsap.context(() => {
+      window.addEventListener('scroll', () => {
+        const currentScroll = scrollY
+        if(currentScroll > lastScroll.current) {
+          gsap.to('.container', {
+            duration: 0.4,
+            opacity: 0,
+            y: -100,
+          });
+        } else{
+          gsap.to('.container', {
+            duration: .4,
+            opacity: 1,
+            y: 0,
+          })
+        }
+        lastScroll.current = currentScroll
+      })
+    })
+    return () => ctx2.revert()
+  }, [])
 
   return (
     <>
