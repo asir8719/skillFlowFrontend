@@ -486,7 +486,7 @@ body.light-mode .srvch1, .light-mode .srvcdv2 {
 .hmimg1, .abtdv2 h4, .abtdv2 h1, .abtdv2 p, .abtimg, .cntctdv2 h1, .cntctimg, .cntctdv3 form, .srvch1, .srvcdv1 {
 transform: none !important;
 position: relative;
-z-index: -10;
+z-index: 0;
 }
   @media (max-width: 768px) {
     .hmdv2 {
@@ -668,7 +668,6 @@ z-index: -10;
   align-items: flex-start;
   padding: 20px;
   position: relative;
-  z-index: -10;
 }
 
 .admndv2 {
@@ -734,7 +733,7 @@ z-index: -10;
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 9999;
+  z-index: 999
 }
 
 
@@ -819,6 +818,7 @@ z-index: -10;
  font-size: x-large;
  font-weight: 900;
  position: fixed;
+ z-index: 100;
  right:2rem;
 }
 

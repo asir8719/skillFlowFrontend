@@ -25,7 +25,18 @@ const SignUp = () => {
       ...user, [name]: value,
     })
   }
-
+  
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({defaults: {duration: .21, delay:0}})
+      tl.from('.rgstrdv1', {y: 50, opacity: 0})
+      tl.from('.rgstrdv2 img', {y: 50, opacity: 0})
+      tl.from('.rgstrdv3 h1', {y: 50, opacity: 0})
+      tl.from('.rgstrdv3 form', {y: 50, opacity: 0})
+    })
+    return () => ctx.revert()
+  }, [])
+  
   const handleSubmit = async(e) =>{
     e.preventDefault()
     try {
@@ -58,16 +69,6 @@ const SignUp = () => {
     return <Navigate to='/about'/>
   }
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({defaults: {duration: .21, delay:0}})
-      tl.from('.rgstrdv1', {y: 50, opacity: 0})
-      tl.from('.rgstrdv2 img', {y: 50, opacity: 0})
-      tl.from('.rgstrdv3 h1', {y: 50, opacity: 0})
-      tl.from('.rgstrdv3 form', {y: 50, opacity: 0})
-    })
-    return () => ctx.revert()
-  })
 
   return (<>
     <div className='rgstrdv1'>
