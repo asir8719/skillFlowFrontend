@@ -6,9 +6,9 @@ import {Swiper, SwiperSlide} from "swiper/react"
 import { Autoplay } from "swiper/modules"
 import 'swiper/css';
 import 'swiper/css/bundle';
-import { loadStripe } from "@stripe/stripe-js"
 import { useAuth } from "../store/auth"
 import { toast } from "react-toastify"
+import { loadStripe } from "@stripe/stripe-js/pure"
 
 gsap.registerPlugin(ScrollTrigger)
 
