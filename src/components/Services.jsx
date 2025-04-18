@@ -40,17 +40,24 @@ const Services = () => {
   }, [])
   
   return (<>
-    <h1 style={{fontSize:"4.1rem", marginTop:"2rem"}} className='srvch1'>Our Services</h1>
+    <h1 style={{fontSize:"4.1rem", marginTop:"2rem"}} className='srvch1'>Our <span style={{color:'#6e96cf'}}>Courses</span></h1>
+    <div style={{marginLeft:'4rem'}}>
+      <p style={{fontSize:"3.7rem", marginTop:"1rem"}}>We are not a <span style={{color:'#24cfa6'}}>Course <p>Factory.</p></span></p>
+      <p style={{fontSize:"2.2rem"}}>We focus on courses that really help.</p>
+    </div>
     <div className='srvcdv1'>
       {services.map((srvc) => (  
-        <div key={srvc.id} className='srvcdv2'>
-          <img src={srvc.image} alt="" />
-          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-            <p>{srvc.provider}</p>
-            <p>{srvc.price}</p>
+        <div style={{borderRadius:'15px'}} className="srvcdv2">
+          <img style={{objectFit:'cover',width:'auto', height:'194px'}} src={srvc.image} alt="image" />
+          <div style={{padding:'1rem'}}>
+            <h1>{srvc.title}</h1>
+            <p>{srvc.description}</p>
+            <span style={{display:'flex', justifyContent:'left', alignItems:'center', gap:'1.4rem'}}>
+                <p style={{color:'#1cdd00'}}>Price: $99</p>
+                <p style={{textDecoration:'line-through'}}>Price: $199</p>
+            </span>
+            <button>Buy Now</button>
           </div>
-          <h2>{srvc.name}</h2>
-          <h4>{srvc.description}</h4>
         </div>
       ))}
     </div>

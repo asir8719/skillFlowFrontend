@@ -60,7 +60,7 @@ const About = () => {
         <p>Customer-Centric Approach: We prioritize you satisfaction and provide <br/> top-notch support to address your IT concerns.</p>
         <p>Affordability: We offer competitive pricing without compromising on the <br/> quality of our services.</p>
         <p>Reliability: Count on us to be there when you need us. We're committed <br/> to ensuring your IT environment is reliable and available 24/7.</p>
-        <button className='hmbtn'>Connect Now</button>
+        <Link to='/signup'><button className='hmbtn'>Connect Now</button></Link>
       </div>
       <div className='abtdv3'><img className='abtimg' src="./WhatsAppAbout.jpg" alt="" /></div>
     </div>

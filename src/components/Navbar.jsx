@@ -119,8 +119,8 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/services" onClick={toggleMenu}>
-                Services
+              <NavLink to="/courses" onClick={toggleMenu}>
+                Courses
               </NavLink>
             </li>
             {isLoggedIn ? (
