@@ -20,9 +20,9 @@ const Footerdiv = () => {
             <nav>
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms of use</a></li>
-                    <li><a href="">Refund & Cancellation Policy</a></li>
+                    <li><a href="./Privacy_Policy.pdf">Privacy Policy</a></li>
+                    <li><a href="./T&C.pdf">Terms of use</a></li>
+                    <li><a href="./Refund_and_Cancellation_Policy.pdf">Refund & Cancellation Policy</a></li>
                 </ul>
             </nav>
             <nav>

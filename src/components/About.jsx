@@ -72,7 +72,7 @@ const About = () => {
       </div>
       <div className='abtdv5' style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
         <h1 style={{fontSize:'4.1rem', fontWeight:'200', textAlign:'center', margin:'10rem 0 6rem 0'}}>Top <span style={{color:'#24cfa6'}}>Companies</span> Our Students <br/> working with</h1>
-        <img style={{objectFit:'cover', width:'640px', margin:'2rem 0 6rem 0'}} src="./companies.webp" alt="companies image" />
+        <img style={{objectFit:'cover', display:'flex', flexWrap:'wrap', width:'90%', margin:'2rem 0 6rem 0'}} src="./companies.webp" alt="companies image" />
       </div>
       <div className='abtdv6' style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
         <h1 style={{fontSize:'4.1rem', fontWeight:'200', textAlign:'center', margin:'8rem 0 6rem 0'}}>Our <span style={{color:'#24cfa6'}}>Vision</span></h1>

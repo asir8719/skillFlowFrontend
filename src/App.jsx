@@ -19,8 +19,25 @@ import AdminUpdate from './components/Admin-Update.jsx'
 import AdminServiceUpdate from './components/Admin-Service-Update.jsx'
 import LightMode from './components/LightMode.jsx'
 import BackTop from './components/BackTop.jsx'
+import { useEffect, useState } from 'react'
 
 function App() {
+
+  const [isTop, setIsTop] = useState(true)
+  useEffect(() =>{
+    const handleScroll = () => {
+      if(window.scrollY > 300){
+        setIsTop(false)
+      } else{
+        setIsTop(true)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
     <>
       <BrowserRouter>
@@ -43,7 +60,7 @@ function App() {
             <Route path='services/:id/edit' element={<AdminServiceUpdate/>}/>
           </Route>
         </Routes>
-        <BackTop/>
+        {isTop ? null : <BackTop/>}
         <Footerdiv/>
       </BrowserRouter>
     </>
