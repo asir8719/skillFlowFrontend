@@ -92,7 +92,7 @@ const Navbar = () => {
         theme="light"
       />
       <div className="container">
-        <div className='div1'><img src="./WhatsAppLogo2.jpg" alt="" /></div>
+        <div className='div1'><img src="./logo.png" alt="" /></div>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>

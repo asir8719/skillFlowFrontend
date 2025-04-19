@@ -8,7 +8,7 @@ import Services from './components/Services'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import { Footerdiv } from './components/Footer'
 import Error from './components/Error'
 import { Logout } from './components/Logout.jsx'
 import Admin from './components/Layouts/Admin-Layout.jsx'
@@ -18,6 +18,7 @@ import AdminServices from './components/Admin-Service.jsx'
 import AdminUpdate from './components/Admin-Update.jsx'
 import AdminServiceUpdate from './components/Admin-Service-Update.jsx'
 import LightMode from './components/LightMode.jsx'
+import BackTop from './components/BackTop.jsx'
 
 function App() {
   return (
@@ -42,7 +43,8 @@ function App() {
             <Route path='services/:id/edit' element={<AdminServiceUpdate/>}/>
           </Route>
         </Routes>
-        <Footer/>
+        <BackTop/>
+        <Footerdiv/>
       </BrowserRouter>
     </>
   )

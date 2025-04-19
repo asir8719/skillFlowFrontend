@@ -857,3 +857,47 @@ z-index: 0;
 .hmdv5 img {
   width: 100%;
 }
+
+.ftrdiv h4 {
+  color: #eeeff6;
+  font-size: large;
+}
+
+.light-mode .ftrdiv h4 {
+  color: #000000;
+}
+
+.ftrdiv li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.ftrdiv ul {
+  padding-left: 0;
+}
+
+.ftrdiv a {
+  text-decoration: none;
+  color: #77838a;
+  font-size: large;
+  font-weight: 200;
+}
+
+.ftrdiv a:hover {
+  color:#24cfa6;
+}
+
+.light-mode .ftrdiv {
+  background-color: hsl(0, 0%, 89%);
+  color: #000000;
+  box-shadow: 0 0 100px -43px #000000;
+}
+
+.ftrdiv {
+  background-color: #202329;
+  color: white;
+}
+
+.light-mode .ftrdiv img {
+  filter: invert(1);
+}
