@@ -58,26 +58,31 @@ const Home = () =>{
             image: "./WebDev.jpg",
             title: "Web Development Domination Course",
             description: "Build fullstack React.js applications with Node.js, Express.js & MongoDB (MERN) with this project-focused course.",
+            price: "$50"
         },
         {
             image: "./AppDev.jpg",
             title: "Mobile App Development Course",
             description: "Learn to build stunning mobile applications using React Native and Expo, with a focus on real-world projects.",
+            price: "$60"
         },
         {
             image: "./Blockchain.jpg",
             title: "Blockchain Development Course",
             description: "Master the fundamentals of blockchain technology and smart contract development with Ethereum and Solidity.",
+            price: "$30"
         },
         {
             image: "./Graphic.jpg",
             title: "Graphic Design Mastery Course",
             description: "Unlock your creativity and learn the principles of graphic design using Adobe Photoshop and Illustrator.",
+            price: "$25"
         },
         {
             image: "./Cybersecurity.jpg",
             title: "Cybersecurity Essentials Course",
             description: "Gain a comprehensive understanding of cybersecurity principles, tools, and techniques to protect digital assets.",
+            price: "$55"
         },
     ]
 

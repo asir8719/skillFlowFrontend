@@ -901,3 +901,10 @@ z-index: 0;
 .light-mode .ftrdiv img {
   filter: invert(1);
 }
+
+#sort {
+  background-color: #181a1b;
+  color: #fff;
+  border-radius: .4rem;
+  padding: .3rem .5rem;
+}
