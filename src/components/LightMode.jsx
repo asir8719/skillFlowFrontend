@@ -18,7 +18,7 @@ const LightMode = () => {
     }
 
   return (
-    <button ref={ref1} className='ltmdbtn' onClick={handleClick}>
+    <button className='ltmdbtn' onClick={handleClick}>
         {theme === 'light' ? <MdDarkMode/> : <CiLight/>}
     </button>
   )
