@@ -20,6 +20,7 @@ import AdminServiceUpdate from './components/Admin-Service-Update.jsx'
 import LightMode from './components/LightMode.jsx'
 import BackTop from './components/BackTop.jsx'
 import { useEffect, useState } from 'react'
+import Cart from './components/Cart.jsx'
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/logout' element={<Logout/>}/>
           <Route path='*' element={<Error/>}/>
+          <Route path='/cart' element={<Cart/>}/>
           <Route path='/admin' element={<Admin/>}>
             <Route path='' element={<AdminUser/>}/>
             <Route path='contact' element={<AdminContact/>}/>

@@ -1,11 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import { ToastContainer } from 'react-toastify';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { BsCart2 } from "react-icons/bs";
 
 const Navbar = () => {
   const { isLoggedIn, LogoutUser } = useAuth();
@@ -13,21 +14,21 @@ const Navbar = () => {
   const ref2 = useRef();
   const [isMobile, setIsMobile] = useState(false); // State to track screen size
   const lastScroll = useRef(0); // Ref to track last scroll position
-
+  
   // Check screen size on mount and resize
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Set to true for screens <= 768px
+      setIsMobile(window.innerWidth <= 980); // Set to true for screens <= 768px
     };
-
+    
     handleResize(); // Check on initial render
     window.addEventListener('resize', handleResize); // Add resize listener
-
+    
     return () => {
       window.removeEventListener('resize', handleResize); // Cleanup listener
     };
   }, []);
-
+  
   const toggleMenu = () => {
     const ctx = gsap.context(() => {
       if (isMobile) {
@@ -54,7 +55,7 @@ const Navbar = () => {
   })
   return () => ctx.revert()
   };
-
+  
   useEffect(() => {
     const ctx2 = gsap.context(() => {
       window.addEventListener('scroll', () => {
@@ -77,6 +78,11 @@ const Navbar = () => {
     })
     return () => ctx2.revert()
   }, [])
+
+  const navigate = useNavigate();
+  const gotoCart = () => {
+    navigate('/cart')
+  }
 
   return (
     <>
@@ -156,6 +162,7 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
+      <div onClick={gotoCart} style={{display:'flex', alignItems:'center', gap:'.5rem', cursor:'pointer'}}><BsCart2 id='cart'/>Cart</div>
       </div>
     </>
   );
