@@ -47,7 +47,26 @@ export const AuthProvider = ({children}) =>{
             userAuthentication()
     }, [isLoggedIn])
     
-    return ( <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, data, token, API}}>
+    const [cartItems, setCartItems] = useState(
+        JSON.parse(localStorage.getItem('cartItems')) || [],
+    )
+
+    const addToCart = (item) => {
+        setCartItems((prevCartItems) => [...prevCartItems, item])
+    }
+    
+    const deleteCartItem = (id) => {
+        const updateCartItems = cartItems.filter((item) => item.id !== id)
+        console.log('updatedCartItems', updateCartItems);
+        setCartItems(updateCartItems)
+    }
+    
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+        // console.log('cartItem price: ', cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0));
+    }, [cartItems])
+        
+    return ( <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, addToCart, cartItems, deleteCartItem}}>
         {children}
     </AuthContext.Provider>
 )}

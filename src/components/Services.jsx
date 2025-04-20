@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useAuth } from '../store/auth'
+import { TbShoppingBag } from "react-icons/tb";
 import gsap from 'gsap'
 
 
@@ -10,7 +11,7 @@ const Services = () => {
     const [refresh, setRefresh] = useState(false)
     const [sortedServices, setSortedServices] = useState([])
     const [sortOption, setSortOption] = useState('')
-    const {API} = useAuth()
+    const {API, addToCart} = useAuth()
 
   const fetchServiceData = async() =>{
     try {
@@ -87,6 +88,7 @@ const Services = () => {
                 <p style={{textDecoration:'line-through'}}>Price: $199</p>
             </span>
             <button>Buy Now</button>
+            <button onClick={() => addToCart(srvc)} style={{marginLeft:'1rem'}}>Add to Cart <TbShoppingBag/></button>
           </div>
         </div>
       ))}

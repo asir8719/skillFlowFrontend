@@ -84,6 +84,7 @@ const Login = () => {
           <div><label htmlFor="password">Password</label><input type="text" name='password' value={user.password} onChange={handleInput} id='password' required /></div>
           <div><button className='hmbtn' onClick={toggleAuth} type='submit'>Login Now</button></div>
         </form>
+        <a style={{textDecoration:'none', color:'#2874f0'}} href="/signup">New to Skill Flow? Create an account</a>
       </div>
     </div>
   )
