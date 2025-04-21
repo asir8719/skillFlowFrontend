@@ -10,6 +10,7 @@ export const AuthProvider = ({children}) =>{
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'))
     const API = 'https://ecommerces-m6g0.onrender.com'
     const [servi, setServi] = useState([])
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const storeTokenInLS = (serverToken) =>{
         setIsLoggedIn(true)
@@ -76,7 +77,7 @@ export const AuthProvider = ({children}) =>{
         // console.log('cartItem price: ', cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0));
     }, [cartItems])
         
-    return ( <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, addToCart, cartItems, deleteCartItem, servi, setServi}}>
+    return ( <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, addToCart, cartItems, deleteCartItem, servi, setServi, setIsAdmin, isAdmin}}>
         {children}
     </AuthContext.Provider>
 )}

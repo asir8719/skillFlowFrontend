@@ -14,7 +14,7 @@ const Login = () => {
   })
 
   
-  const {isLoggedIn, storeTokenInLS, API} = useAuth()
+  const {isLoggedIn, storeTokenInLS, API, setIsAdmin} = useAuth()
   const [loggedIn, setisLoggedIn] = useState(isLoggedIn)
   
   useEffect(() => {
@@ -50,10 +50,11 @@ const Login = () => {
         body: JSON.stringify(user)
       })
       
-      const result = await response.json()
       
       if(response.ok){
+        const result = await response.json()
         storeTokenInLS(result.token)
+        setIsAdmin(result.isAdmin)
         setTimeout(() =>{
           setRedirect(true)
           toast.success(result.message)
