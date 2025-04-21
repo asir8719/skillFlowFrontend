@@ -10,7 +10,7 @@ const Cart = () => {
     {isLoggedIn ? (<>
     <h1 style={{fontSize:'3.5rem', marginLeft:'2rem'}}>Your <span style={{color:'#6e96cf'}}>Cart</span></h1>
         {cartItems.length > 0 ? (<>
-          <div className='crtdv1' style={{display:'flex', flexDirection:'row', padding:'0rem 2.2rem 2.2rem', columnGap:'1.9rem'}}>
+          <div className='crtdv1' style={{display:'flex', padding:'0rem 2.2rem 2.2rem', columnGap:'1.9rem'}}>
             <div className='crtdv2' style={{display:'flex', flexDirection:'column', rowGap:'1rem'}}>
             {cartItems.map((item) => (
               <div key={item.id} style={{backgroundColor:'#fff', border:'1px solid #ccc', padding: '10px', display:'flex', gap:'2.4rem', borderRadius:'15px'}}>
