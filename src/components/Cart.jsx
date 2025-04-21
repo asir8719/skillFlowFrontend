@@ -10,10 +10,10 @@ const Cart = () => {
     {isLoggedIn ? (<>
     <h1 style={{fontSize:'3.5rem', marginLeft:'2rem'}}>Your <span style={{color:'#6e96cf'}}>Cart</span></h1>
         {cartItems.length > 0 ? (<>
-          <div className='crtdv1' style={{display:'flex', padding:'0rem 2.2rem 2.2rem', columnGap:'1.9rem'}}>
-            <div className='crtdv2' style={{display:'flex', flexDirection:'column', rowGap:'1rem'}}>
+          <div className='crtdv1'>
+            <div className='crtdv2'>
             {cartItems.map((item) => (
-              <div key={item.id} style={{backgroundColor:'#fff', border:'1px solid #ccc', padding: '10px', display:'flex', gap:'2.4rem', borderRadius:'15px'}}>
+              <div className='crtdv21' key={item.id}>
                 <div><img style={{objectFit:'cover', height:'121px', borderRadius:'15px'}} src={item.image} alt="cartItemimage" /></div>
                 <div>
                   <h2>{item.name}</h2>
@@ -23,11 +23,11 @@ const Cart = () => {
               </div>
             ))}
             </div>
-            <div className='crtdv3' style={{backgroundColor:'#fff', border:'1px solid #ccc', padding: '10px 50px 0px', display:'flex', flexDirection:'column', gap:'2.4rem', borderRadius:'15px', width:'80%', height:'fit-content'}}>
+            <div className='crtdv3'>
               <h1>Order Details</h1>
               <h2>Items in Cart: {cartItems.length}</h2>
               <h2>Total Price: ${cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0)}</h2>
-              <button style={{backgroundColor:'#5a4bda', color:'white', width:'352px', padding:'20px', fontSize:'large', marginBottom:'1.5rem'}}>Pay Now</button>
+              <button style={{backgroundColor:'#5a4bda', color:'white', width:'87%', padding:'20px', fontSize:'large', marginBottom:'1.5rem'}}>Pay Now</button>
             </div>
           </div>
         </>) : (<>
