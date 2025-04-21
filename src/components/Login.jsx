@@ -55,6 +55,7 @@ const Login = () => {
         const result = await response.json()
         storeTokenInLS(result.token)
         setIsAdmin(result.isAdmin)
+        localStorage.setItem('isAdmin', result.isAdmin)
         setTimeout(() =>{
           setRedirect(true)
           toast.success(result.message)
