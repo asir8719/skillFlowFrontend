@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import gsap from 'gsap';
 import { BsCart2 } from "react-icons/bs";
+import LightMode from './LightMode.jsx';
 
 const Navbar = () => {
   const { isLoggedIn, LogoutUser } = useAuth();
@@ -162,7 +163,9 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
+      <div style={{display:'flex', columnGap:'.9rem'}}><LightMode/>
       <div onClick={gotoCart} style={{display:'flex', alignItems:'center', gap:'.5rem', cursor:'pointer'}}><BsCart2 id='cart'/>Cart</div>
+      </div>
       </div>
     </>
   );

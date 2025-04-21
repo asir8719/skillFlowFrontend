@@ -11,7 +11,7 @@ const Services = () => {
     const [refresh, setRefresh] = useState(false)
     const [sortedServices, setSortedServices] = useState([])
     const [sortOption, setSortOption] = useState('')
-    const {API, addToCart} = useAuth()
+    const {API, addToCart, cartItems, setServi} = useAuth()
 
   const fetchServiceData = async() =>{
     try {
@@ -24,6 +24,7 @@ const Services = () => {
         setServices(serviceData)
         setSortedServices(serviceData)
         setRefresh(!refresh)
+        setServi(serviceData)
       } else{
         toast.error(data.error)
       }
@@ -77,8 +78,9 @@ const Services = () => {
         </select>
       </div>
     <div className='srvcdv1'>
-      {sortedServices.map((srvc) => (  
-        <div style={{borderRadius:'15px'}} className="srvcdv2" key={srvc._id}>
+      {sortedServices.map((srvc) => {  
+        return (
+          <div style={{borderRadius:'15px'}} className="srvcdv2" key={srvc._id}>
           <img style={{objectFit:'cover',width:'auto', height:'194px'}} src={srvc.image} alt="image" />
           <div style={{padding:'1rem'}}>
             <h1>{srvc.name}</h1>
@@ -88,10 +90,11 @@ const Services = () => {
                 <p style={{textDecoration:'line-through'}}>Price: $199</p>
             </span>
             <button>Buy Now</button>
-            <button onClick={() => addToCart(srvc)} style={{marginLeft:'1rem'}}>Add to Cart <TbShoppingBag/></button>
+            <button onClick={() => addToCart(srvc)} style={{marginLeft:'1rem'}}>{cartItems.some((cartItem) => cartItem.id === srvc.id) ? 'Added' : 'Add to Cart'} <TbShoppingBag/></button>
           </div>
         </div>
-      ))}
+);
+})}
     </div>
   </>
   )

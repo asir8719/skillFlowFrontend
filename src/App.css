@@ -816,22 +816,17 @@ z-index: 0;
 .ltmdbtn {
  color: #000;
  background-color: #ffffffec;
- border-radius: 50%;
- font-size: x-large;
+ border-radius: 70px;
+ width: 4rem;
+ position: relative;
  font-weight: 900;
- position: fixed;
+ font-size: large;
+ padding: 0.3rem 0.7rem;
  z-index: 100;
- right:2rem;
 }
 
 .light-mode .ltmdbtn {
-  border-radius: 50%;
-  color: #fff;
-  background-color: #0000009e;
-  font-size: x-large;
-  font-weight: 900;
-  position: fixed;
-  right:2rem;
+  color: #000;
 }
 
 .light-mode .admndv3 h1{
@@ -975,4 +970,17 @@ z-index: 0;
     padding: 1rem;
     margin: 0rem;
   }
+}
+
+.ltmdspn {
+  display: flex;
+  justify-content: start;
+  background-color: hsl(252, 7%, 66%);
+}
+
+.drkspn {
+  display: flex;
+  justify-content: end;
+  background-color: #656bff;
+  color: white;
 }

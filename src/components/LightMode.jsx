@@ -6,20 +6,21 @@ const LightMode = () => {
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem('theme') || 'light'
     })
-
+    
     useEffect(() => {
         localStorage.setItem('theme', theme)
         document.body.classList.toggle('light-mode', theme === 'light')
     }, [theme])
-
+    
     const handleClick = () => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
-        
     }
 
   return (
-    <button className='ltmdbtn' onClick={handleClick}>
-        {theme === 'light' ? <MdDarkMode/> : <CiLight/>}
+    <button className={`ltmdbtn ${theme === 'light' ? 'ltmdspn' : 'drkspn'}`} onClick={handleClick}>
+        <span>
+            {theme === 'dark' ? (<MdDarkMode/>) : <CiLight/>}
+        </span>
     </button>
   )
 }

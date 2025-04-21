@@ -17,7 +17,6 @@ import AdminUser from './components/Admin-User.jsx'
 import AdminServices from './components/Admin-Service.jsx'
 import AdminUpdate from './components/Admin-Update.jsx'
 import AdminServiceUpdate from './components/Admin-Service-Update.jsx'
-import LightMode from './components/LightMode.jsx'
 import BackTop from './components/BackTop.jsx'
 import { useEffect, useState } from 'react'
 import Cart from './components/Cart.jsx'
@@ -43,7 +42,6 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar/>
-        <LightMode/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>

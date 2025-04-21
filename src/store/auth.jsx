@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext()
 
@@ -8,7 +9,8 @@ export const AuthProvider = ({children}) =>{
     const [data, setData] = useState('')
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'))
     const API = 'https://ecommerces-m6g0.onrender.com'
-    
+    const [servi, setServi] = useState([])
+
     const storeTokenInLS = (serverToken) =>{
         setIsLoggedIn(true)
         setToken(serverToken)
@@ -51,8 +53,16 @@ export const AuthProvider = ({children}) =>{
         JSON.parse(localStorage.getItem('cartItems')) || [],
     )
 
+    
     const addToCart = (item) => {
-        setCartItems((prevCartItems) => [...prevCartItems, item])
+        const isInCart = cartItems.some((cartItem) => cartItem.id === item.id);
+        if(isInCart) {
+            toast.warn('Item already in cart');
+            return;
+        } else {
+            setCartItems((prevCartItems) => [...prevCartItems, item])
+            toast.success('Item added to cart');
+        }
     }
     
     const deleteCartItem = (id) => {
@@ -66,7 +76,7 @@ export const AuthProvider = ({children}) =>{
         // console.log('cartItem price: ', cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0));
     }, [cartItems])
         
-    return ( <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, addToCart, cartItems, deleteCartItem}}>
+    return ( <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, addToCart, cartItems, deleteCartItem, servi, setServi}}>
         {children}
     </AuthContext.Provider>
 )}
