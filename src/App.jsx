@@ -20,6 +20,7 @@ import AdminServiceUpdate from './components/Admin-Service-Update.jsx'
 import BackTop from './components/BackTop.jsx'
 import { useEffect, useState } from 'react'
 import Cart from './components/Cart.jsx'
+import { AuthProvider } from './store/auth.jsx'
 
 function App() {
 
@@ -41,27 +42,29 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/contact' element={<Contact/>}/>
-          <Route path='/courses' element={<Services/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/signup' element={<SignUp/>}/>
-          <Route path='/logout' element={<Logout/>}/>
-          <Route path='*' element={<Error/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/admin' element={<Admin/>}>
-            <Route path='' element={<AdminUser/>}/>
-            <Route path='contact' element={<AdminContact/>}/>
-            <Route path='services' element={<AdminServices/>}/>
-            <Route path=':id/edit' element={<AdminUpdate/>}/>
-            <Route path='services/:id/edit' element={<AdminServiceUpdate/>}/>
-          </Route>
-        </Routes>
-        {isTop ? null : <BackTop/>}
-        <Footerdiv/>
+        <AuthProvider>
+          <Navbar/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/courses' element={<Services/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/logout' element={<Logout/>}/>
+            <Route path='*' element={<Error/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/admin' element={<Admin/>}>
+              <Route path='' element={<AdminUser/>}/>
+              <Route path='contact' element={<AdminContact/>}/>
+              <Route path='services' element={<AdminServices/>}/>
+              <Route path=':id/edit' element={<AdminUpdate/>}/>
+              <Route path='services/:id/edit' element={<AdminServiceUpdate/>}/>
+            </Route>
+          </Routes>
+          {isTop ? null : <BackTop/>}
+          <Footerdiv/>
+        </AuthProvider>
       </BrowserRouter>
     </>
   )

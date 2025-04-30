@@ -7,13 +7,11 @@ import { Autoplay } from "swiper/modules"
 import 'swiper/css';
 import 'swiper/css/bundle';
 import { useAuth } from "../store/auth"
-import { toast } from "react-toastify"
-import { loadStripe } from "@stripe/stripe-js/pure"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Home = () =>{
-    const {API} = useAuth()
+    const {handlePayment} = useAuth()
     const containerRef = useRef()
     useEffect(() =>{
         const ctx = gsap.context(()  => {
@@ -86,32 +84,6 @@ const Home = () =>{
         },
     ]
 
-    const makePayment = async() =>{
-        const stripe = await loadStripe('process.env.stripe_public_key')
-        console.log('stripe', stripe)
-        try {
-            const response = await fetch('http://localhost:3000/payment', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    amount: 1000,
-                    currency: 'usd',
-                    description: 'Payment for course',
-                })
-            })
-            const data = await response.json()
-            console.log(data);
-            
-            // if(response.ok){
-
-            // }
-        } catch (error) {
-            toast.error('Error creating payment intent')
-        }
-    }
-
     return (
         <>
             <div ref={containerRef} className="hmdv1">
@@ -179,10 +151,10 @@ const Home = () =>{
                                     <h1>{slide.title}</h1>
                                     <p>{slide.description}</p>
                                     <span style={{display:'flex', alignItems:'center', gap:'1.4rem'}}>
-                                        <p style={{color:'#1cdd00'}}>Price: $99</p>
+                                        <p style={{color:'#1cdd00'}}>{slide.price}</p>
                                         <p style={{textDecoration:'line-through'}}>Price: $199</p>
                                     </span>
-                                    <button onClick={makePayment}>Buy Now</button>
+                                    <button onClick={() => handlePayment(Number(slide.price.replace('$', '')))}>Buy Now</button>
                                 </div>
                             </SwiperSlide>
                         ))}

@@ -10,7 +10,7 @@ import { BsCart2 } from "react-icons/bs";
 import LightMode from './LightMode.jsx';
 
 const Navbar = () => {
-  const { isLoggedIn, LogoutUser } = useAuth();
+  const { isLoggedIn, LogoutUser, isAdmin } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const ref2 = useRef();
   const [isMobile, setIsMobile] = useState(false); // State to track screen size
@@ -156,13 +156,13 @@ const Navbar = () => {
                 </li>
               </>
             )}
-            {localStorage.getItem('isAdmin') === "true" && (
+            {isAdmin ? (
               <li>
               <NavLink to="/admin" onClick={toggleMenu}>
                 Admin
               </NavLink>
             </li>
-            )}
+            ) : null }
           </ul>
         </nav>
       <div style={{display:'flex', columnGap:'.9rem'}}><LightMode/>

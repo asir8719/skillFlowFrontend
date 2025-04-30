@@ -4,7 +4,8 @@ import { useAuth } from '../store/auth'
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Cart = () => {
-  const {isLoggedIn, cartItems, deleteCartItem} = useAuth()
+  const {isLoggedIn, cartItems, deleteCartItem, handlePayment} = useAuth()
+  const totalPrice = cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0)
 
   return (<>
     {isLoggedIn ? (<>
@@ -27,7 +28,7 @@ const Cart = () => {
               <h1>Order Details</h1>
               <h2>Items in Cart: {cartItems.length}</h2>
               <h2>Total Price: ${cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0)}</h2>
-              <button style={{backgroundColor:'#5a4bda', color:'white', width:'87%', padding:'20px', fontSize:'large', marginBottom:'1.5rem'}}>Pay Now</button>
+              <button onClick={() => handlePayment(totalPrice)} style={{backgroundColor:'#5a4bda', color:'white', width:'87%', padding:'20px', fontSize:'large', marginBottom:'1.5rem'}}>Pay Now</button>
             </div>
           </div>
         </>) : (<>

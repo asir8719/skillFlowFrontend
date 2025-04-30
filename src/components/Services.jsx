@@ -6,12 +6,11 @@ import gsap from 'gsap'
 
 
 const Services = () => {
-  
     const [services, setServices] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [sortedServices, setSortedServices] = useState([])
     const [sortOption, setSortOption] = useState('')
-    const {API, addToCart, cartItems, setServi} = useAuth()
+    const {API, addToCart, cartItems, setServi, isLoggedIn, handlePayment} = useAuth()
 
   const fetchServiceData = async() =>{
     try {
@@ -58,7 +57,6 @@ const Services = () => {
     } else if(option === '') {
       sortedData = services
     }
-
     setSortedServices(sortedData);
   }
   
@@ -89,8 +87,10 @@ const Services = () => {
                 <p style={{color:'#1cdd00'}}>Price: ${srvc.price}</p>
                 <p style={{textDecoration:'line-through'}}>Price: $199</p>
             </span>
-            <button>Buy Now</button>
-            <button onClick={() => addToCart(srvc)} style={{marginLeft:'1rem'}}>{cartItems.some((cartItem) => cartItem.id === srvc.id) ? 'Added' : 'Add to Cart'} <TbShoppingBag/></button>
+            <button onClick={() => handlePayment(srvc.price)}>Buy Now</button>
+            {
+              isLoggedIn ? (<button onClick={() => addToCart(srvc)} style={{marginLeft:'1rem'}}>{cartItems.some((cartItem) => cartItem.id === srvc.id) ? 'Added' : 'Add to Cart'} <TbShoppingBag/></button>) : null
+            }
           </div>
         </div>
 );
