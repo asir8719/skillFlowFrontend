@@ -9,8 +9,8 @@ export const AuthProvider = ({children}) =>{
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [data, setData] = useState('')
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'))
-    const API2 = 'https://ecommerces-m6g0.onrender.com'
-    const API = 'http://localhost:3000'
+    const API = 'https://ecommerces-m6g0.onrender.com'
+    const API2 = 'http://localhost:3000'
     const [servi, setServi] = useState([])
     const [isAdmin, setIsAdmin] = useState(false)
 
