@@ -13,6 +13,7 @@ export const AuthProvider = ({children}) =>{
     const API2 = 'http://localhost:3000'
     const [servi, setServi] = useState([])
     const [isAdmin, setIsAdmin] = useState(false)
+    const [sortedServices, setSortedServices] = useState([])
 
     const storeTokenInLS = (serverToken) =>{
         setIsLoggedIn(true)
@@ -142,7 +143,7 @@ export const AuthProvider = ({children}) =>{
         // console.log('cartItem price: ', cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0));
     }, [cartItems])
         
-    return ( <AuthContext.Provider value={{handlePayment, storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, API2, addToCart, cartItems, deleteCartItem, servi, setServi, setIsAdmin, isAdmin}}>
+    return ( <AuthContext.Provider value={{handlePayment, storeTokenInLS, LogoutUser, isLoggedIn, data, token, API, API2, addToCart, cartItems, deleteCartItem, servi, setServi, setIsAdmin, isAdmin, sortedServices, setSortedServices}}>
         {children}
     </AuthContext.Provider>
 )}

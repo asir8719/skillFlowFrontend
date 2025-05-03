@@ -7,11 +7,12 @@ import { Autoplay } from "swiper/modules"
 import 'swiper/css';
 import 'swiper/css/bundle';
 import { useAuth } from "../store/auth"
+import { toast } from "react-toastify"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Home = () =>{
-    const {handlePayment} = useAuth()
+    const {handlePayment, isLoggedIn} = useAuth()
     const containerRef = useRef()
     useEffect(() =>{
         const ctx = gsap.context(()  => {
@@ -56,31 +57,31 @@ const Home = () =>{
             image: "./WebDev.jpg",
             title: "Web Development Domination Course",
             description: "Build fullstack React.js applications with Node.js, Express.js & MongoDB (MERN) with this project-focused course.",
-            price: "$50"
+            price: "₹50"
         },
         {
             image: "./AppDev.jpg",
             title: "Mobile App Development Course",
             description: "Learn to build stunning mobile applications using React Native and Expo, with a focus on real-world projects.",
-            price: "$60"
+            price: "₹60"
         },
         {
             image: "./Blockchain.jpg",
             title: "Blockchain Development Course",
             description: "Master the fundamentals of blockchain technology and smart contract development with Ethereum and Solidity.",
-            price: "$30"
+            price: "₹30"
         },
         {
             image: "./Graphic.jpg",
             title: "Graphic Design Mastery Course",
             description: "Unlock your creativity and learn the principles of graphic design using Adobe Photoshop and Illustrator.",
-            price: "$25"
+            price: "₹25"
         },
         {
             image: "./Cybersecurity.jpg",
             title: "Cybersecurity Essentials Course",
             description: "Gain a comprehensive understanding of cybersecurity principles, tools, and techniques to protect digital assets.",
-            price: "$55"
+            price: "₹55"
         },
     ]
 
@@ -152,9 +153,9 @@ const Home = () =>{
                                     <p>{slide.description}</p>
                                     <span style={{display:'flex', alignItems:'center', gap:'1.4rem'}}>
                                         <p style={{color:'#1cdd00'}}>{slide.price}</p>
-                                        <p style={{textDecoration:'line-through'}}>Price: $199</p>
+                                        <p style={{textDecoration:'line-through'}}>Price: ₹199</p>
                                     </span>
-                                    <button onClick={() => handlePayment(Number(slide.price.replace('$', '')))}>Buy Now</button>
+                                    {isLoggedIn ? <button onClick={() => handlePayment(Number(slide.price.replace('₹', '')))}>Buy Now</button> : <button onClick={() => toast.error('Please login to buy this service')}>Buy Now</button>}
                                 </div>
                             </SwiperSlide>
                         ))}

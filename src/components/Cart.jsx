@@ -18,7 +18,7 @@ const Cart = () => {
                 <div><img style={{objectFit:'cover', height:'121px', borderRadius:'15px'}} src={item.image} alt="cartItemimage" /></div>
                 <div>
                   <h2>{item.name}</h2>
-                  <p>Price: ${item.price}</p>
+                  <p>Price: ₹{item.price}</p>
                 </div>
                 <button onClick={() => deleteCartItem(item.id)} style={{fontSize:'large', padding:'0.5rem', width:'9rem', placeSelf:'end', marginLeft:'auto'}}>Remove <span><RiDeleteBin6Line style={{scale:'1.2'}}/></span></button>
               </div>
@@ -27,7 +27,7 @@ const Cart = () => {
             <div className='crtdv3'>
               <h1>Order Details</h1>
               <h2>Items in Cart: {cartItems.length}</h2>
-              <h2>Total Price: ${cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0)}</h2>
+              <h2>Total Price: ₹{cartItems.map((item) => item.price).reduce((acc, curr) => acc + curr, 0)}</h2>
               <button onClick={() => handlePayment(totalPrice)} style={{backgroundColor:'#5a4bda', color:'white', width:'87%', padding:'20px', fontSize:'large', marginBottom:'1.5rem'}}>Pay Now</button>
             </div>
           </div>

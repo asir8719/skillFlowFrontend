@@ -3,14 +3,14 @@ import { toast } from 'react-toastify'
 import { useAuth } from '../store/auth'
 import { TbShoppingBag } from "react-icons/tb";
 import gsap from 'gsap'
+import SearchFilter from './SearchFilter';
 
 
 const Services = () => {
     const [services, setServices] = useState([])
     const [refresh, setRefresh] = useState(false)
-    const [sortedServices, setSortedServices] = useState([])
     const [sortOption, setSortOption] = useState('')
-    const {API, addToCart, cartItems, setServi, isLoggedIn, handlePayment} = useAuth()
+    const {API, addToCart, cartItems, setServi, isLoggedIn, handlePayment, setSortedServices, sortedServices} = useAuth()
 
   const fetchServiceData = async() =>{
     try {
@@ -66,7 +66,7 @@ const Services = () => {
       <p style={{fontSize:"3.7rem", marginTop:"1rem"}}>We are not a <span style={{color:'#24cfa6'}}>Course <p>Factory.</p></span></p>
       <p style={{fontSize:"2.2rem"}}>We focus on courses that really help.</p>
     </div>
-      <div style={{marginLeft:'1.5rem', marginTop:'2rem'}}>
+      <div style={{marginLeft:'1.5rem', marginTop:'2rem', display:'flex', gap:'2rem', alignItems:'center'}}>
         <select name="sort" id="sort" value={sortOption} onChange={(e) => handleSort(e.target.value)}>
           <option defaultChecked value="">Default</option>
           <option value="low">Price: Low to High</option>
@@ -74,6 +74,7 @@ const Services = () => {
           <option value="a-z">Name: a-z</option>
           <option value="z-a">Name: z-a</option>
         </select>
+        <SearchFilter sortedData={services} />
       </div>
     <div className='srvcdv1'>
       {sortedServices.map((srvc) => {  
@@ -84,10 +85,12 @@ const Services = () => {
             <h1>{srvc.name}</h1>
             <p>{srvc.description}</p>
             <span style={{display:'flex', justifyContent:'left', alignItems:'center', gap:'1.4rem'}}>
-                <p style={{color:'#1cdd00'}}>Price: ${srvc.price}</p>
-                <p style={{textDecoration:'line-through'}}>Price: $199</p>
+                <p style={{color:'#1cdd00'}}>Price: ₹{srvc.price}</p>
+                <p style={{textDecoration:'line-through'}}>Price: ₹199</p>
             </span>
-            <button onClick={() => handlePayment(srvc.price)}>Buy Now</button>
+            {
+              isLoggedIn ? <button onClick={() => handlePayment(srvc.price)}>Buy Now</button> : <button onClick={() => toast.error('Please login to buy this service')}>Buy Now</button>
+            }
             {
               isLoggedIn ? (<button onClick={() => addToCart(srvc)} style={{marginLeft:'1rem'}}>{cartItems.some((cartItem) => cartItem.id === srvc.id) ? 'Added' : 'Add to Cart'} <TbShoppingBag/></button>) : null
             }
